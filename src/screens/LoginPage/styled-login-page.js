@@ -64,7 +64,7 @@ export const Label = styled.label`
     border-radius: 2px;
     border: solid 1px #b8b8b8;
     padding: 19px 16px;
-    width: 264px;
+    width: 328px;
     height: 56px;
     font-size: 16px;
     font-weight: 400;
