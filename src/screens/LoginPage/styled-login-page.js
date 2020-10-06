@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { MdVisibility, MdVisibilityOff } from 'react-icons/md'
 
 export const Container = styled.div`
   display: flex;
@@ -104,5 +105,22 @@ export const Button = styled.button`
   line-height: normal;
   letter-spacing: -0.39px;
   text-align: center;
-  color: var(--black);
+  color: black;
+`
+
+export const VisibilityIcon = styled(MdVisibility)`
+  position: relative;
+  width: 24px;
+  height: 24px;
+  left: 220px;
+  bottom: 40px;
+  
+`
+
+export const VisibilityOffIcon = styled(MdVisibilityOff)`
+  position: relative;
+  width: 24px;
+  height: 24px;
+  left: 220px;
+  bottom: 40px;
 `

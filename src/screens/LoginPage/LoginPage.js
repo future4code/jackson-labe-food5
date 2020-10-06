@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { 
   Container,
   Logo,
@@ -7,10 +7,18 @@ import {
   Label,
   Button,
   StyledLink,
+  VisibilityIcon,
+  VisibilityOffIcon
 } from './styled-login-page'
 import logo from '../../Img/logo-future-eats-color.png'
 
 const LoginPage = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  
+  const handlePasswordVisibility = () => {
+    setShowPassword(state => !state)
+  }
+
   return (
     <Container>
       <Logo src={logo} alt="logo" />
@@ -32,10 +40,15 @@ const LoginPage = () => {
           <span>Senha*</span>
           <input
             id="password-login"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             placeholder="Mínimo 6 caracteres"
             required
           />
+          {
+            showPassword
+              ? <VisibilityOffIcon onClick={handlePasswordVisibility} color="#b8b8b8"/>
+              : <VisibilityIcon onClick={handlePasswordVisibility} color="#b8b8b8"/>
+          }
         </Label>
 
         <Button type="submit">Entrar</Button>
