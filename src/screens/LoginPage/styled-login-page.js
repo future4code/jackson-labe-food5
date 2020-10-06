@@ -112,7 +112,7 @@ export const VisibilityIcon = styled(MdVisibility)`
   position: relative;
   width: 24px;
   height: 24px;
-  left: 220px;
+  left: 285px;
   bottom: 40px;
   
 `
@@ -121,6 +121,6 @@ export const VisibilityOffIcon = styled(MdVisibilityOff)`
   position: relative;
   width: 24px;
   height: 24px;
-  left: 220px;
+  left: 285px;
   bottom: 40px;
 `
