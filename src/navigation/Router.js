@@ -10,6 +10,7 @@ import AdressEditPage from '../screens/ProfilePage/AdressEditPage'
 import LoginPage from '../screens/LoginPage/LoginPage'
 import SignUpPage from '../screens/SignUpPage/SignUpPage'
 import ErrorPage from '../screens/ErrorPage/Error'
+import BottomNavigation from '../components/BottomNavigation'
 
 const Router = () => {
     return (
@@ -25,15 +26,18 @@ const Router = () => {
             </Route>
             <Route exact path={["/pagina-inicial", "/"]}>
                 <Homepage/>
+                <BottomNavigation />
             </Route>
             <Route exact path={`/detalhes-restaurante`}>
                 <RestaurantPage/>
             </Route>
             <Route exact path={"/carrinho"}>
                 <CartPage/>
+                <BottomNavigation />
             </Route>
             <Route exact path={"/dados-pessoais"}>
                 <ProfilePage/>
+                <BottomNavigation />
             </Route>
             <Route exact path={"/editar-dados-pessoais"}>
                 <ProfileEditPage/>
