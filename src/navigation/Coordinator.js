@@ -33,3 +33,6 @@ export const goToProfileEditPage = (history) => {
 export const goToAdressEditPage = (history) => {
     history.push(`/editar-endereco`)
 } 
+export const goBack = (history) => {
+    history.goBack()
+}
