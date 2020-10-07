@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form } from './styled-register-adress'
 import { Button } from '../../styles/atoms'
 import { Label } from '../../styles/molecules'
@@ -16,10 +16,37 @@ const initialState = {
 
 const RegisterAdressForm = () => {
     const history = useHistory()
+    const [isLoading, setIsLoading] = useState(false)
     const [form, setForm] = useState(initialState)
+
+    useEffect(() => {
+      setIsLoading(true)
+      const token = localStorage.getItem('token')
+
+      if (token) {
+        api.get('/profile/address', {
+          headers: {
+            auth: token
+          }
+        })
+          .then(response => {
+            setForm(response.data.address)
+            setIsLoading(false)
+          })
+          .catch(error => {
+            console.log(error)
+            setForm(initialState)
+            setIsLoading(false)
+          })
+      } else {
+        setForm(initialState)
+        setIsLoading(false)
+      }
+    }, [])
 
     const handleSubmit = (e) => {
       e.preventDefault();
+      setIsLoading(true)
 
       const token = localStorage.getItem('token')
 
@@ -30,11 +57,13 @@ const RegisterAdressForm = () => {
       }).then(response => {
           localStorage.setItem('user', JSON.stringify(response.data.user))
           localStorage.setItem('token', response.data.token)
+          setIsLoading(false)
           history.push('/pagina-inicial')
         })
         .catch(error => {
           console.log(error)
           setForm(initialState)
+          setIsLoading(false)
         })
     }
 
@@ -119,7 +148,7 @@ const RegisterAdressForm = () => {
           />
         </Label>
 
-        <Button type="submit">Salvar</Button>
+        <Button type="submit">{isLoading ? 'Carregando...' : 'Salvar'}</Button>
       </Form>
     )
 }
