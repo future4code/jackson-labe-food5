@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   HomepageContainer,
   SearchIcon,
@@ -12,10 +12,34 @@ import {
   UserHandleContainer,
   SubInfos
 } from './styled-homepage'
-import healthy from '../../Img/healthy-food.jpg'
 import { InfoText, InnerScreen, RestaurantName } from '../../styles/atoms';
+import api from '../../services/api'
 
 const Homepage = () => {
+  const [restaurants, setRestaurants] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(true)
+    
+    const token = localStorage.getItem('token') 
+
+    api.get('/restaurants', {
+      headers: {
+        auth: token
+      }
+    })
+      .then(response => {
+        setRestaurants(response.data.restaurants)
+        setIsLoading(false)
+      })
+      .catch(error => {
+        alert('Erro na requisição')
+        setIsLoading(false)
+      })
+  }, [])
+
+
   return (
     <InnerScreen>
       <HomepageContainer>
@@ -33,39 +57,20 @@ const Homepage = () => {
           </FilterContainer>
         </UserHandleContainer>
         <RestaurantContainer>
-          <RestaurantCard>
-            <RestaurantImage src={healthy}/>
-            <RestaurantName>Bullguer Eldorado</RestaurantName>
-            <SubInfos>
-              <InfoText>50 - 60 min</InfoText>
-              <InfoText>Frete R$6,00</InfoText>
-            </SubInfos>
-          </RestaurantCard>
-          <RestaurantCard>
-            <RestaurantImage src={healthy}/>
-            <RestaurantName>Vinil Butantã</RestaurantName>
-            <SubInfos>
-              <InfoText>50 - 60 min</InfoText>
-              <InfoText>Frete R$6,00</InfoText>
-            </SubInfos>
-          </RestaurantCard>
-          <RestaurantCard>
-            <RestaurantImage src={healthy}/>
-            <RestaurantName>Juicy Burguer</RestaurantName>
-            <SubInfos>
-              <InfoText>50 - 60 min</InfoText>
-              <InfoText>Frete R$6,00</InfoText>
-            </SubInfos>
-          </RestaurantCard>
-          <RestaurantCard>
-            <RestaurantImage src={healthy}/>
-          </RestaurantCard>
-          <RestaurantCard>
-            <RestaurantImage src={healthy}/>
-          </RestaurantCard>
-          <RestaurantCard>
-            <RestaurantImage src={healthy}/>
-          </RestaurantCard> 
+          {
+            isLoading
+            ? <p>Carregando...</p>
+            : (restaurants.map((restaurant) => (
+              <RestaurantCard key={restaurant.id}>
+                <RestaurantImage src={restaurant.logoUrl} alt="restaurant" />
+                <RestaurantName>{restaurant.name}</RestaurantName>
+                <SubInfos>
+                  <InfoText>{restaurant.deliveryTime} min</InfoText>
+                  <InfoText>Frete R${restaurant.shipping},00</InfoText>
+                </SubInfos>
+              </RestaurantCard>
+            )))
+          }
         </RestaurantContainer>
       </HomepageContainer> 
     </InnerScreen>

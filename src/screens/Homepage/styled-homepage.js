@@ -76,7 +76,7 @@ export const FilterSpan = styled.span`
 export const RestaurantContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     margin: 120px 16px 0px 16px;
 `
 
