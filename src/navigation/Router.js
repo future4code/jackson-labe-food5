@@ -47,7 +47,7 @@ const Router = () => {
                 <BottomNavigation />
             </Route>
             <Route exact path={"/editar-dados-pessoais"}>
-                <Header title='Meu perfil' withBackButton/>
+                <Header title='Editar' withBackButton/>
                 <ProfileEditPage/>
             </Route>
             <Route exact path={"/editar-endereco"}>
