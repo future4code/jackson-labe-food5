@@ -11,7 +11,7 @@ export const goToRegisterAdressPage = (history) => {
 }
 
 export const goToHomepage = (history) => {
-    history.push(["/pagina-inicial", "/"])
+    history.push("/pagina-inicial")
 }
 
 export const goToRestaurantPage = (history) => {

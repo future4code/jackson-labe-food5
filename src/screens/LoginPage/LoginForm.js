@@ -6,29 +6,52 @@ import {
 } from './styled-login-page'
 import { Label } from '../../styles/molecules'
 import { Button } from '../../styles/atoms'
+import useForm from './useForm'
+import {useHistory} from 'react-router-dom'
+import {login} from '../../services/user'
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false)
+  const [form, handleInputChange] = useForm({ email: '', password: ''})
+  const [isLoading, setIsLoading] = useState(false)
+  const history = useHistory()
   
   const handlePasswordVisibility = () => {
     setShowPassword(state => !state)
   }
 
+  const onClickLogin = (event) => {
+    event.preventDefault()
+    const element = document.getElementById('login_form')
+    const isValid = element.checkValidity()
+    element.reportValidity()
+    if (isValid) {
+      login(form, history, setIsLoading)
+    }
+  }
+
   return (
-    <Form>
+    <Form id={'login_form'}>
         <Label htmlFor="email-login">
           <span>Email*</span>
           <input
+            value={form.email}
+            name={'email'}
+            onChange={handleInputChange}
             id="email-login"
             type="email"
             placeholder="email@email.com"
             required
+            autoFocus
           />
         </Label>
 
         <Label htmlFor="password-login">
           <span>Senha*</span>
           <input
+            value={form.password}
+            name={'password'}
+            onChange={handleInputChange}
             id="password-login"
             type={showPassword ? 'text' : 'password'}
             placeholder="Mínimo 6 caracteres"
@@ -41,7 +64,12 @@ const LoginForm = () => {
           }
         </Label>
 
-        <Button type="submit">Entrar</Button>
+        <Button 
+        type="submit"
+        onClick={onClickLogin}
+        >
+          {isLoading ? <p>carregando</p> : <>Entrar</>}
+          </Button>
       </Form>
   );
 };
