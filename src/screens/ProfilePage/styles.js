@@ -7,29 +7,6 @@ export const Container = styled.div`
   padding: 64px 0px;
 `
 
-export const Header = styled.header`
-  position: fixed;
-  top: 0;
-  height: 64px;
-  width: 100vw;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-  background-color: white;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 400;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.39px;
-  text-align: center;
-  color: black;
-`
-
 export const PersonalInfoContainer = styled.section`
   display: flex;
   justify-content: space-between;
