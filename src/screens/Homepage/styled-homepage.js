@@ -18,6 +18,7 @@ export const UserHandleContainer = styled.div`
     position: fixed;
     background-color: white;
     width: 100%;
+    padding-top: 16px;
 `
 
 export const SearchContainer = styled.div`
@@ -35,8 +36,7 @@ export const SearchInput = styled.input`
     padding: 0px 8px 0px 56.3px;
 
     ::placeholder {
-        font-family: Roboto;
-        font-size: 16px;
+
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
@@ -64,8 +64,6 @@ export const FilterContainer = styled.div`
 
 export const FilterSpan = styled.span`
     height: 18px;
-    font-family: Roboto;
-    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -101,53 +99,12 @@ export const RestaurantImage = styled.img`
     border-top-right-radius: 8px;
 `
 
-export const RestaurantName = styled.span`
-    align-self: flex-start;
-    padding-left: 8px;
-    margin-top: 12px;
-    width: 296px;
-    height: 18px;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    color: #e86e5a;
-`
-
 export const SubInfos = styled.div`
     display: flex;
-    align-self: flex-start;
+    justify-content: space-between;
+    align-self: stretch;
     padding-left: 8px;
+    padding-right: 8px;
     margin-top: 4px;
     color: #d0d0d0;
-`
-
-export const DeliveryTime = styled.span`
-    width: 148px;
-    height: 18px;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    color: #b8b8b8;
-`
-
-export const Freight = styled.span`
-    width: 140px;
-    height: 18px;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    text-align: right;
-    color: #b8b8b8;
 `
