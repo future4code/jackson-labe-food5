@@ -37,11 +37,23 @@ export const InnerScreen = styled.div`
     padding: 64px 0px; 
 `
 
-export const DescriptionText = styled.span`
+export const InfoText = styled.span`
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.39px;
     color: #b8b8b8;
+`
+
+export const RestaurantName = styled.span`
+    align-self: flex-start;
+    padding-left: 8px;
+    margin-top: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    color: #e86e5a;
 `

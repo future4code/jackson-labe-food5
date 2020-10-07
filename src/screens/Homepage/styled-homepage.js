@@ -63,7 +63,7 @@ export const FilterContainer = styled.div`
 `
 
 export const FilterSpan = styled.span`
-    height: 18px
+    height: 18px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -97,20 +97,6 @@ export const RestaurantImage = styled.img`
     object-fit: fill;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-`
-
-export const RestaurantName = styled.span`
-    align-self: flex-start;
-    padding-left: 8px;
-    margin-top: 12px;
-    width: 296px;
-    height: 18px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    color: #e86e5a;
 `
 
 export const SubInfos = styled.div`

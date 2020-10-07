@@ -10,10 +10,10 @@ import {
   RestaurantContainer, 
   RestaurantImage,
   UserHandleContainer,
-  RestaurantName, SubInfos, DeliveryTime, Freight 
+  SubInfos
 } from './styled-homepage'
 import healthy from '../../Img/healthy-food.jpg'
-import { DescriptionText, InnerScreen } from '../../styles/atoms';
+import { InfoText, InnerScreen, RestaurantName } from '../../styles/atoms';
 
 const Homepage = () => {
   return (
@@ -37,24 +37,24 @@ const Homepage = () => {
             <RestaurantImage src={healthy}/>
             <RestaurantName>Bullguer Eldorado</RestaurantName>
             <SubInfos>
-              <DescriptionText>50 - 60 min</DescriptionText>
-              <DescriptionText>Frete R$6,00</DescriptionText>
+              <InfoText>50 - 60 min</InfoText>
+              <InfoText>Frete R$6,00</InfoText>
             </SubInfos>
           </RestaurantCard>
           <RestaurantCard>
             <RestaurantImage src={healthy}/>
             <RestaurantName>Vinil Butantã</RestaurantName>
             <SubInfos>
-              <DescriptionText>50 - 60 min</DescriptionText>
-              <DescriptionText>Frete R$6,00</DescriptionText>
+              <InfoText>50 - 60 min</InfoText>
+              <InfoText>Frete R$6,00</InfoText>
             </SubInfos>
           </RestaurantCard>
           <RestaurantCard>
             <RestaurantImage src={healthy}/>
             <RestaurantName>Juicy Burguer</RestaurantName>
             <SubInfos>
-              <DescriptionText>50 - 60 min</DescriptionText>
-              <DescriptionText>Frete R$6,00</DescriptionText>
+              <InfoText>50 - 60 min</InfoText>
+              <InfoText>Frete R$6,00</InfoText>
             </SubInfos>
           </RestaurantCard>
           <RestaurantCard>
