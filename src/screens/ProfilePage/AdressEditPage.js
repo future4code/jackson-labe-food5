@@ -1,8 +1,11 @@
 import React from 'react';
+import { InnerScreen } from '../../styles/atoms';
 
 const AdressEditPage = () => {
   return (
-    <div>Editar endereço</div>
+    <InnerScreen>
+      <div>Editar endereço</div>
+    </InnerScreen>
   );
 }
 

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { 
   Form,
-  Label,
-  Button,
   VisibilityIcon,
   VisibilityOffIcon
 } from './styled-login-page'
-
+import { Label } from '../../styles/molecules'
+import { Button } from '../../styles/atoms'
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false)

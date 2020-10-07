@@ -13,59 +13,62 @@ import {
   RestaurantName, SubInfos, DeliveryTime, Freight 
 } from './styled-homepage'
 import healthy from '../../Img/healthy-food.jpg'
+import { DescriptionText, InnerScreen } from '../../styles/atoms';
 
 const Homepage = () => {
   return (
-    <HomepageContainer>
-      <UserHandleContainer>
-        <SearchContainer>
-          <SearchIcon/>
-          <SearchInput placeholder={"Restaurante"}/>
-        </SearchContainer>
-        <FilterContainer>
-          <FilterSpan>Burger</FilterSpan>
-          <FilterSpan>Asiática</FilterSpan>
-          <FilterSpan>Massas</FilterSpan>
-          <FilterSpan>Saudáveis</FilterSpan>
-          <FilterSpan>Vegano</FilterSpan>
-        </FilterContainer>
-      </UserHandleContainer>
-      <RestaurantContainer>
-        <RestaurantCard>
-          <RestaurantImage src={healthy}/>
-          <RestaurantName>Bullguer Eldorado</RestaurantName>
-          <SubInfos>
-            <DeliveryTime>50 - 60 min</DeliveryTime>
-            <Freight>Frete R$6,00</Freight>
-          </SubInfos>
-        </RestaurantCard>
-        <RestaurantCard>
-          <RestaurantImage src={healthy}/>
-          <RestaurantName>Vinil Butantã</RestaurantName>
-          <SubInfos>
-            <DeliveryTime>50 - 60 min</DeliveryTime>
-            <Freight>Frete R$6,00</Freight>
-          </SubInfos>
-        </RestaurantCard>
-        <RestaurantCard>
-          <RestaurantImage src={healthy}/>
-          <RestaurantName>Juicy Burguer</RestaurantName>
-          <SubInfos>
-            <DeliveryTime>50 - 60 min</DeliveryTime>
-            <Freight>Frete R$6,00</Freight>
-          </SubInfos>
-        </RestaurantCard>
-        <RestaurantCard>
-          <RestaurantImage src={healthy}/>
-        </RestaurantCard>
-        <RestaurantCard>
-          <RestaurantImage src={healthy}/>
-        </RestaurantCard>
-        <RestaurantCard>
-          <RestaurantImage src={healthy}/>
-        </RestaurantCard> 
-      </RestaurantContainer>
-    </HomepageContainer>
+    <InnerScreen>
+      <HomepageContainer>
+        <UserHandleContainer>
+          <SearchContainer>
+            <SearchIcon/>
+            <SearchInput placeholder={"Restaurante"}/>
+          </SearchContainer>
+          <FilterContainer>
+            <FilterSpan>Burger</FilterSpan>
+            <FilterSpan>Asiática</FilterSpan>
+            <FilterSpan>Massas</FilterSpan>
+            <FilterSpan>Saudáveis</FilterSpan>
+            <FilterSpan>Vegano</FilterSpan>
+          </FilterContainer>
+        </UserHandleContainer>
+        <RestaurantContainer>
+          <RestaurantCard>
+            <RestaurantImage src={healthy}/>
+            <RestaurantName>Bullguer Eldorado</RestaurantName>
+            <SubInfos>
+              <DescriptionText>50 - 60 min</DescriptionText>
+              <DescriptionText>Frete R$6,00</DescriptionText>
+            </SubInfos>
+          </RestaurantCard>
+          <RestaurantCard>
+            <RestaurantImage src={healthy}/>
+            <RestaurantName>Vinil Butantã</RestaurantName>
+            <SubInfos>
+              <DescriptionText>50 - 60 min</DescriptionText>
+              <DescriptionText>Frete R$6,00</DescriptionText>
+            </SubInfos>
+          </RestaurantCard>
+          <RestaurantCard>
+            <RestaurantImage src={healthy}/>
+            <RestaurantName>Juicy Burguer</RestaurantName>
+            <SubInfos>
+              <DescriptionText>50 - 60 min</DescriptionText>
+              <DescriptionText>Frete R$6,00</DescriptionText>
+            </SubInfos>
+          </RestaurantCard>
+          <RestaurantCard>
+            <RestaurantImage src={healthy}/>
+          </RestaurantCard>
+          <RestaurantCard>
+            <RestaurantImage src={healthy}/>
+          </RestaurantCard>
+          <RestaurantCard>
+            <RestaurantImage src={healthy}/>
+          </RestaurantCard> 
+        </RestaurantContainer>
+      </HomepageContainer> 
+    </InnerScreen>
   );
 }
 

@@ -1,9 +1,7 @@
 import React from 'react'
-import { 
-    Form,
-    Label,
-    Button,
-  } from './styled-register-adress'
+import { Form } from './styled-register-adress'
+import { Button } from '../../styles/atoms'
+import { Label } from '../../styles/molecules'
 import { goToHomepage } from '../../navigation/Coordinator'
 import {useHistory} from 'react-router-dom'
 
