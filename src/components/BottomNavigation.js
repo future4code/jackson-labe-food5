@@ -9,6 +9,7 @@ const Container = styled.div`
   width: 100vw;
   height: 49px;
   border-top: 1px solid #b8b8b8;
+  background-color: white;
 
   display: flex;
   justify-content: space-around;

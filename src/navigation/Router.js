@@ -11,6 +11,7 @@ import LoginPage from '../screens/LoginPage/LoginPage'
 import SignUpPage from '../screens/SignUpPage/SignUpPage'
 import ErrorPage from '../screens/ErrorPage/Error'
 import BottomNavigation from '../components/BottomNavigation'
+import Header from '../components/Header'
 
 const Router = () => {
     return (
@@ -19,30 +20,38 @@ const Router = () => {
                 <LoginPage/>
             </Route>
             <Route exact path={"/cadastro"}>
+                <Header title='' withBackButton />
                 <SignUpPage/>
             </Route>
             <Route exact path={"/registro-endereco"}>
+                <Header title='' withBackButton />
                 <RegisterAdressPage/>
             </Route>
             <Route exact path={["/pagina-inicial", "/"]}>
+                <Header title='Rappi4' />
                 <Homepage/>
                 <BottomNavigation />
             </Route>
             <Route exact path={`/detalhes-restaurante`}>
+                <Header title='Restaurante' withBackButton />
                 <RestaurantPage/>
             </Route>
             <Route exact path={"/carrinho"}>
+                <Header title='Meu carrinho' />
                 <CartPage/>
                 <BottomNavigation />
             </Route>
             <Route exact path={"/dados-pessoais"}>
+                <Header title='Meu perfil' />
                 <ProfilePage/>
                 <BottomNavigation />
             </Route>
             <Route exact path={"/editar-dados-pessoais"}>
+                <Header title='Meu perfil' withBackButton/>
                 <ProfileEditPage/>
             </Route>
             <Route exact path={"/editar-endereco"}>
+                <Header title='Endereço' withBackButton />
                 <AdressEditPage/>
             </Route>
             <Route>
