@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { goToHomepage } from '../navigation/Coordinator'
 
-const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/rappi4"
+const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/rappi4A"
 
 export const login = (body, history, setIsLoading) => {
   setIsLoading(true)

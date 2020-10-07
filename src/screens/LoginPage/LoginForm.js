@@ -9,6 +9,7 @@ import { Button } from '../../styles/atoms'
 import useForm from './useForm'
 import {useHistory} from 'react-router-dom'
 import {login} from '../../services/user'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -68,7 +69,7 @@ const LoginForm = () => {
         type="submit"
         onClick={onClickLogin}
         >
-          {isLoading ? <p>carregando</p> : <>Entrar</>}
+          {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Entrar</>}
           </Button>
       </Form>
   );

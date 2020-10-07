@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { 
   Container,
   ContainerProduct,
@@ -7,24 +7,45 @@ import {
   Quantidity,
   ContQuantidity,
   BottomAdicionar,
-  ContAdd
+  ContAdd,
+  Form,
+  ContainerAll
 
 } from './styled-restaurant-page'
 import ImgCard from '../../Img/hamburger.jpg'
-import CardQuantidity from '../../components/CardQuantidity';
-
+import Modal from '@material-ui/core/Modal';
+import { goToRestaurantPage } from '../../navigation/Coordinator';
+import {useHistory} from 'react-router-dom'
 
 const CardProducts = () => {
-    const [cardQuantidity, setCardQuantidity] = useState(false)
+    const history = useHistory()
+    const [selectValue, setSelectValue] = useState("")
+    const [open, setOpen] = React.useState(false);
 
-    const onClickAdd = () => {
-        setCardQuantidity(true)
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const onChangeValue = (event) => {
+      setSelectValue(event.target.value)
+  }
+  const onClickValue = (event) => {
+    event.preventDefault()
+    const element = document.getElementById('value_form')
+    const isValid = element.checkValidity()
+    element.reportValidity()
+    if (isValid) {
+      handleClose()
     }
-    if (cardQuantidity) {
-        return (
-            <CardQuantidity />
-        )
-    }
+  }
+const removeValue = () => {
+    setSelectValue("")
+}
+
   return (
     <Container>
         <ContainerProduct>
@@ -32,7 +53,7 @@ const CardProducts = () => {
             <ContainerDetails>
                 <ContQuantidity>
                     <Quantidity>
-                        <p>0</p>
+                        {selectValue ? <></> : <p>{selectValue}</p>}
                     </Quantidity>
                 </ContQuantidity>
                 <p>Hamburger</p>
@@ -40,8 +61,34 @@ const CardProducts = () => {
                 <ContAdd>
                     <h4>R$ 35,90</h4>
                     <BottomAdicionar>
-                        <p onClick={onClickAdd}>Adicionar</p>
+                        {selectValue ? <p onClick={removeValue}>Remover</p> : <p onClick={handleOpen}>Adicionar</p> }
                     </BottomAdicionar>
+                    <Modal
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                        open={open}
+                        onClose={handleClose}
+                    >
+                        <ContainerAll>
+                            <p>Selecione a quantidade desejada</p>
+                            <Form id='value_form'>
+                                <select 
+                                    name={selectValue}
+                                    value={selectValue}
+                                    onChange={onChangeValue}
+
+                                >
+                                    <option value="1" selected> 1</option> 
+                                    <option value="2"> 2</option>
+                                    <option value="3"> 3</option>
+                                    <option value="4"> 4</option> 
+                                    <option value="5"> 5</option>
+                                    <option value="6"> 6</option>
+                                </select>
+                                    <p type="submit" onClick={onClickValue}>ADICIONAR AO CARRINHO</p>
+                            </Form>
+                        </ContainerAll>
+                    </Modal>
                 </ContAdd>
             </ContainerDetails>
         </ContainerProduct>
