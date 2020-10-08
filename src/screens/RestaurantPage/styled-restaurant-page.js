@@ -237,6 +237,9 @@ export const BottomAdicionar = styled.div`
   letter-spacing: -0.29px;
   text-align: center;
   color: #e02020;
+  &:active {
+        color: black;
+    }
   }
   
 `
@@ -260,4 +263,68 @@ export const ContAdd = styled.div`
   margin: 3px 0px 0px 0px;
   }
 
+`
+export const ContainerAll = styled.div`
+  width: 328px;
+  height: 214px;
+  background-color: white;
+  margin: 228px 16px 196px 23px;
+  display: flex;
+  flex-direction: column;
+
+    p{
+        width: 296px;
+        height: 18px;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.39px;
+        text-align: center;
+        color: var(--black);
+        margin-top: 43px;
+        margin-left: 16px;
+    }
+`
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+
+  option {
+    width: 232px;
+    height: 18px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    color: var(--black);
+    margin: 0px 16px 0px 16px;
+  }
+
+  select {
+    width: 296px;
+    height: 56px;
+    border-radius: 4px;
+    border: solid 1px #b8b8b8;
+    margin: 19px 16px 0px 16px
+  }
+  p {
+    width: 183px;
+    height: 19px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    text-align: right;
+    color: #4a90e2;
+    margin: 23px 5px 21px 129px;
+  }
 `
