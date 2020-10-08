@@ -36,7 +36,7 @@ export const SearchInput = styled.input`
     padding: 0px 8px 0px 56.3px;
 
     ::placeholder {
-
+        font-size: 16px;
         font-weight: normal;
         font-stretch: normal;
         font-style: normal;
