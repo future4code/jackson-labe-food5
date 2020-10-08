@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { CircularProgress } from '@material-ui/core';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+export const StyledProgress = styled(CircularProgress)`
+  align-self: center;
+  margin-top: 16px;
 `
 
 export const PersonalInfoContainer = styled.section`
@@ -101,6 +107,7 @@ export const RestaurantCard = styled.div`
   }
   
   span:nth-child(3) {
+    margin-top: 7px;
     font-family: Roboto;
     font-size: 16px;
     font-weight: 700;
