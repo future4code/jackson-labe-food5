@@ -17,7 +17,7 @@ import Header from '../components/Header'
 const PrivateRoute = ({path, children}) => {
     const token = localStorage.getItem('token')
     
-    return token ? <Route exact path={path}>{children}</Route> : <Redirect to="/login" />
+    return token ? <Route path={path}>{children}</Route> : <Redirect to="/login" />
 }
 
 const Router = () => {
@@ -33,11 +33,6 @@ const Router = () => {
             <PrivateRoute path={"/registro-endereco"}>
                 <Header title='' withBackButton />
                 <RegisterAdressPage/>
-            </PrivateRoute>
-            <PrivateRoute path={["/pagina-inicial", "/"]}>
-                <Header title='Rappi4' />
-                <Homepage/>
-                <BottomNavigation />
             </PrivateRoute>
             <PrivateRoute path={`/detalhes-restaurante`}>
                 <Header title='Restaurante' withBackButton />
@@ -60,6 +55,11 @@ const Router = () => {
             <PrivateRoute path={"/editar-endereco"}>
                 <Header title='Endereço' withBackButton />
                 <AdressEditPage/>
+            </PrivateRoute>
+            <PrivateRoute path={["/pagina-inicial", "/"]}>
+                <Header title='Rappi4' />
+                <Homepage/>
+                <BottomNavigation />
             </PrivateRoute>
             <Route>
                 <ErrorPage/>
