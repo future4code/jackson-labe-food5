@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { InfoText, InnerScreen } from '../../styles/atoms';
 import { UserAdressContainer,
   PaymentMethodContainer,
@@ -9,10 +9,11 @@ import { UserAdressContainer,
   ConfirmButton, CartContainer
 } from './styled-cart-page';
 import OrderCard from './OrderCard';
+import { useCart } from '../../contexts/shoppingCart'
 
 const Cart = () => {
-  
-  
+  const { cart } = useCart()
+
   return (
     <InnerScreen>
       <UserAdressContainer>
@@ -25,7 +26,10 @@ const Cart = () => {
           <InfoText>R. Fradique Coutinho, 1136 - Vila Madalena</InfoText>
           <InfoText>30 - 45 min</InfoText>
         </RestaurantInfoContainer>
-        <OrderCard/>
+        {cart.map(item => (
+          <OrderCard item={item}/>
+        ))}
+        
         <OrderCard/>
         <SubInfos>
           <p style={{textAlign: "right"}}>Frete R$6,00</p>
