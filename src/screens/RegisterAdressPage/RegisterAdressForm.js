@@ -4,6 +4,7 @@ import { Button } from '../../styles/atoms'
 import { Label } from '../../styles/molecules'
 import { useHistory } from 'react-router-dom'
 import api from '../../services/api'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const initialState = {
   street: '',
@@ -148,7 +149,7 @@ const RegisterAdressForm = () => {
           />
         </Label>
 
-        <Button type="submit">{isLoading ? 'Carregando...' : 'Salvar'}</Button>
+        <Button type="submit">{isLoading ? <CircularProgress color={'inherit'} size={24}/> : 'Salvar'}</Button>
       </Form>
     )
 }

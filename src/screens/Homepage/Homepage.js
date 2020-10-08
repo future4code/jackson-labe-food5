@@ -12,6 +12,7 @@ import {
   UserHandleContainer,
   SubInfos
 } from './styled-homepage'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import { InfoText, InnerScreen, RestaurantName } from '../../styles/atoms';
 import api from '../../services/api'
 
@@ -59,7 +60,7 @@ const Homepage = () => {
         <RestaurantContainer>
           {
             isLoading
-            ? <p>Carregando...</p>
+            ? <CircularProgress color='secondary' size={24}/>
             : (restaurants.map((restaurant) => (
               <RestaurantCard key={restaurant.id}>
                 <RestaurantImage src={restaurant.logoUrl} alt="restaurant" />
