@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import React from 'react'
 import RegisterAdressPage from '../screens/RegisterAdressPage/RegisterAdressPage'
 import Homepage from '../screens/Homepage/Homepage'
@@ -13,6 +13,13 @@ import ErrorPage from '../screens/ErrorPage/Error'
 import BottomNavigation from '../components/BottomNavigation'
 import Header from '../components/Header'
 
+
+const PrivateRoute = ({path, children}) => {
+    const token = localStorage.getItem('token')
+    
+    return token ? <Route exact path={path}>{children}</Route> : <Redirect to="/login" />
+}
+
 const Router = () => {
     return (
         <Switch>  
@@ -23,37 +30,37 @@ const Router = () => {
                 <Header title='' withBackButton />
                 <SignUpPage/>
             </Route>
-            <Route exact path={"/registro-endereco"}>
+            <PrivateRoute path={"/registro-endereco"}>
                 <Header title='' withBackButton />
                 <RegisterAdressPage/>
-            </Route>
-            <Route exact path={["/pagina-inicial", "/"]}>
+            </PrivateRoute>
+            <PrivateRoute path={["/pagina-inicial", "/"]}>
                 <Header title='Rappi4' />
                 <Homepage/>
                 <BottomNavigation />
-            </Route>
-            <Route exact path={`/detalhes-restaurante`}>
+            </PrivateRoute>
+            <PrivateRoute path={`/detalhes-restaurante`}>
                 <Header title='Restaurante' withBackButton />
                 <RestaurantPage/>
-            </Route>
-            <Route exact path={"/carrinho"}>
+            </PrivateRoute>
+            <PrivateRoute path={"/carrinho"}>
                 <Header title='Meu carrinho' />
                 <CartPage/>
                 <BottomNavigation />
-            </Route>
-            <Route exact path={"/dados-pessoais"}>
+            </PrivateRoute>
+            <PrivateRoute path={"/dados-pessoais"}>
                 <Header title='Meu perfil' />
                 <ProfilePage/>
                 <BottomNavigation />
-            </Route>
-            <Route exact path={"/editar-dados-pessoais"}>
+            </PrivateRoute>
+            <PrivateRoute path={"/editar-dados-pessoais"}>
                 <Header title='Editar' withBackButton/>
                 <ProfileEditPage/>
-            </Route>
-            <Route exact path={"/editar-endereco"}>
+            </PrivateRoute>
+            <PrivateRoute path={"/editar-endereco"}>
                 <Header title='Endereço' withBackButton />
                 <AdressEditPage/>
-            </Route>
+            </PrivateRoute>
             <Route>
                 <ErrorPage/>
             </Route>
