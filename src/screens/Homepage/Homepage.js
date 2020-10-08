@@ -18,6 +18,7 @@ import api from '../../services/api'
 const Homepage = () => {
   const [restaurants, setRestaurants] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [searchInput, setSearchInput] = useState('')
 
   useEffect(() => {
     setIsLoading(true)
@@ -39,6 +40,13 @@ const Homepage = () => {
       })
   }, [])
 
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  }
+
+  const filteredRestaurants = () => {
+    return restaurants.filter((restaurant) => restaurant.name.toLowerCase().includes(searchInput.toLowerCase()))
+  }
 
   return (
     <InnerScreen>
@@ -46,7 +54,11 @@ const Homepage = () => {
         <UserHandleContainer>
           <SearchContainer>
             <SearchIcon/>
-            <SearchInput placeholder={"Restaurante"}/>
+            <SearchInput
+              value={searchInput}
+              onChange={handleSearchInputChange}
+              placeholder={"Restaurante"}
+            />
           </SearchContainer>
           <FilterContainer>
             <FilterSpan>Burger</FilterSpan>
@@ -60,16 +72,19 @@ const Homepage = () => {
           {
             isLoading
             ? <p>Carregando...</p>
-            : (restaurants.map((restaurant) => (
-              <RestaurantCard key={restaurant.id}>
-                <RestaurantImage src={restaurant.logoUrl} alt="restaurant" />
-                <RestaurantName>{restaurant.name}</RestaurantName>
-                <SubInfos>
-                  <InfoText>{restaurant.deliveryTime} min</InfoText>
-                  <InfoText>Frete R${restaurant.shipping},00</InfoText>
-                </SubInfos>
-              </RestaurantCard>
-            )))
+            : (filteredRestaurants().length > 0 
+                ? filteredRestaurants()
+                  .map((restaurant) => (
+                  <RestaurantCard key={restaurant.id}>
+                    <RestaurantImage src={restaurant.logoUrl} alt="restaurant" />
+                    <RestaurantName>{restaurant.name}</RestaurantName>
+                    <SubInfos>
+                      <InfoText>{restaurant.deliveryTime} min</InfoText>
+                      <InfoText>Frete R${restaurant.shipping},00</InfoText>
+                    </SubInfos>
+                  </RestaurantCard>))
+                : <p>Não encontramos {":("}</p> 
+            )
           }
         </RestaurantContainer>
       </HomepageContainer> 
