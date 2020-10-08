@@ -1,29 +1,16 @@
 import React from 'react';
-import { 
-  Container,
-  Title,
-  Form,
-  Label,
-  Button,
-  Bar,
-  BackIcon,
-  Black,
-} from './styled-register-adress'
+import { Container, Title, } from './styled-register-adress'
 import RegisterAdressForm from './RegisterAdressForm'
-import {goBack} from '../../navigation/Coordinator'
-import {useHistory} from 'react-router-dom'
+import { InnerScreen } from '../../styles/atoms';
 
 const RegisterAdressPage = () => {
-  const history = useHistory()
   return (
-    <Container>
-      <Bar>
-        <Black></Black>
-        <BackIcon onClick={() => goBack(history)}></BackIcon>
-      </Bar>
-      <Title>Meu endereço</Title>
-      <RegisterAdressForm />
-    </Container>
+    <InnerScreen>
+      <Container>
+        <Title>Meu endereço</Title>
+        <RegisterAdressForm />
+      </Container>
+    </InnerScreen>
   );
 }
 

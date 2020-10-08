@@ -1,8 +1,17 @@
-import React from 'react';
-import {Container, Logo, Title, Form, Label, Button} from './styled-singup-page';
+import React, { useState } from 'react';
+import {Container, Logo, Title, Form} from './styled-signup-page';
+import { Label } from '../../styles/molecules'
+import { Button } from '../../styles/atoms'
 import logo from '../../Img/logo-future-eats-color.png';
+import { VisibilityIcon, VisibilityOffIcon } from '../../styles/atoms'
 
 const SignUpForm = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  
+  const handlePasswordVisibility = () => {
+    setShowPassword(state => !state)
+  }
+
   return (
     <Container>
       <Logo src={logo} alt="logo" />

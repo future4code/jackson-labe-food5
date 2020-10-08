@@ -1,8 +1,11 @@
 import React from 'react';
+import { InnerScreen } from '../../styles/atoms';
 
 const Cart = () => {
   return (
-    <div>Carrinho</div>
+    <InnerScreen>
+      <div>Carrinho</div>
+    </InnerScreen>
   );
 }
 
