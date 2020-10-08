@@ -17,7 +17,7 @@ import Modal from '@material-ui/core/Modal';
 import { goToRestaurantPage } from '../../navigation/Coordinator';
 import {useHistory} from 'react-router-dom'
 
-const CardProducts = () => {
+const CardProducts = (props) => {
     const history = useHistory()
     const [selectValue, setSelectValue] = useState("")
     const [open, setOpen] = React.useState(false);
@@ -49,17 +49,18 @@ const removeValue = () => {
   return (
     <Container>
         <ContainerProduct>
-            <Img src={ImgCard} />
+            <Img src={props.photoUrl} />
             <ContainerDetails>
                 <ContQuantidity>
+                  {selectValue ? 
                     <Quantidity>
-                        {selectValue ? <></> : <p>{selectValue}</p>}
-                    </Quantidity>
+                       <p>{selectValue}</p>
+                  </Quantidity> : <></> }
                 </ContQuantidity>
-                <p>Hamburger</p>
-                <span>Pão, tomate, queijo, alface, molho</span>
+                <p>{props.name}</p>
+                <span>{props.description}</span>
                 <ContAdd>
-                    <h4>R$ 35,90</h4>
+                    <h4>R${props.price}</h4>
                     <BottomAdicionar>
                         {selectValue ? <p onClick={removeValue}>Remover</p> : <p onClick={handleOpen}>Adicionar</p> }
                     </BottomAdicionar>
@@ -78,7 +79,8 @@ const removeValue = () => {
                                     onChange={onChangeValue}
 
                                 >
-                                    <option value="1" selected> 1</option> 
+                                    <option value=""> </option> 
+                                    <option value="1"> 1</option> 
                                     <option value="2"> 2</option>
                                     <option value="3"> 3</option>
                                     <option value="4"> 4</option> 

@@ -145,6 +145,9 @@ export const ContainerProduct = styled.div`
   border: solid 1px #b8b8b8;
   margin-top: 10px;
   display: flex;
+  position: relative;
+  margin-bottom: 5px;
+  padding-bottom: 3px;
 
 `
 export const Img = styled.img`
@@ -194,6 +197,9 @@ export const Quantidity = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 
   p {
   width: 9px;
@@ -224,6 +230,11 @@ export const BottomAdicionar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 
   p {
     width: 43px;
