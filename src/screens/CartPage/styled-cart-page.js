@@ -145,8 +145,6 @@ export const Img = styled.img`
 export const SubInfos = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 16px;
-  padding-right: 16px;
   margin-top: 4px;
   color: black;
 `
