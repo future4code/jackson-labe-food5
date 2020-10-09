@@ -18,5 +18,5 @@ describe("Register Adress",()=>{
         
         fireEvent.click(button);
 
-    })
+    });
 })
