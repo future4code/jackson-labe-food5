@@ -27,15 +27,15 @@ const Router = () => {
                 <LoginPage/>
             </Route>
             <Route exact path={"/cadastro"}>
-                <Header title='' withBackButton />
+                <Header title='' withbackbutton />
                 <SignUpPage/>
             </Route>
             <PrivateRoute path={"/registro-endereco"}>
-                <Header title='' withBackButton />
+                <Header title='' withbackbutton />
                 <RegisterAdressPage/>
             </PrivateRoute>
             <PrivateRoute path={`/detalhes-restaurante/:id`}>
-                <Header title='Restaurante' withBackButton />
+                <Header title='Restaurante' withbackbutton />
                 <RestaurantPage/>
             </PrivateRoute>
             <PrivateRoute path={"/carrinho"}>
@@ -49,11 +49,11 @@ const Router = () => {
                 <BottomNavigation />
             </PrivateRoute>
             <PrivateRoute path={"/editar-dados-pessoais"}>
-                <Header title='Editar' withBackButton/>
+                <Header title='Editar' withbackbutton/>
                 <ProfileEditPage/>
             </PrivateRoute>
             <PrivateRoute path={"/editar-endereco"}>
-                <Header title='Endereço' withBackButton />
+                <Header title='Endereço' withbackbutton />
                 <AdressEditPage/>
             </PrivateRoute>
             <PrivateRoute path={["/pagina-inicial", "/"]}>
