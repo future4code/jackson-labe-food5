@@ -4,7 +4,7 @@ import { Label } from '../../styles/molecules'
 import { Button } from '../../styles/atoms'
 import logo from '../../Img/logo-future-eats-color.png';
 import { VisibilityIcon, VisibilityOffIcon } from '../../styles/atoms'
-import api from "../../services/api.js;";
+import api from "../../services/api.js";
 
 const body = {
 	name: '',
@@ -29,6 +29,7 @@ const SignUpForm = () => {
         }
       })
     }
+  })
   
 
   return (
@@ -106,7 +107,6 @@ const SignUpForm = () => {
 
     </Container>
   );
-}
 }
 
 export default SignUpForm;
