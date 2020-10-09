@@ -7,7 +7,7 @@ import {
   FilterContainer,
   FilterSpan,
   RestaurantCard,
-  RestaurantContainer, 
+  RestaurantContainer,
   RestaurantImage,
   UserHandleContainer,
   SubInfos
@@ -94,6 +94,6 @@ const Homepage = () => {
       </HomepageContainer> 
     </InnerScreen>
   );
-}
+};
 
-export default Homepage;
+export default HomePage;
