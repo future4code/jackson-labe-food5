@@ -27,17 +27,17 @@ Esse é um projeto em grupo, segue o nome da galera:
 - Valor de subtotal frete + produtos;
 - Confirmar Compra com método de pagamento;
 - Histótico de compras após o tempo de espera da entrega;
+- Paginas protegidas com token;
 - Design Responsivo pra Iphone 6/7/8;
 
 ### O que não funciona:
 
 - API Place order que informa ao usuário o tempo pra o produto chegar em sua residencia;
-- Subtotal do histórico;
 - Testes
 
 ### Link do Surge:
 
-
+http://mixed-zebra.surge.sh
 
 ### Layout
 
