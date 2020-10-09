@@ -21,6 +21,8 @@ import {goToRestaurantPage} from '../../navigation/Coordinator'
 const Homepage = () => {
   const history = useHistory()
   const [restaurants, setRestaurants] = useState([])
+  const [categories, setCategories] = useState([])
+  const [currentCategory, setCurrentCategory] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [searchInput, setSearchInput] = useState('')
 
@@ -35,7 +37,13 @@ const Homepage = () => {
       }
     })
       .then(response => {
+        const categoriesSet = new Set();
+        response.data.restaurants.forEach(restaurant => {
+          categoriesSet.add(restaurant.category);
+        })
+        
         setRestaurants(response.data.restaurants)
+        setCategories([...categoriesSet])
         setIsLoading(false)
       })
       .catch(error => {
@@ -48,8 +56,17 @@ const Homepage = () => {
     setSearchInput(e.target.value);
   }
 
+  const handleCategoryClick = (category) => {
+    setCurrentCategory(category)
+  }
+
   const filteredRestaurants = () => {
-    return restaurants.filter((restaurant) => restaurant.name.toLowerCase().includes(searchInput.toLowerCase()))
+    return (
+      restaurants
+      .filter((restaurant) => (
+        restaurant.name.toLowerCase().includes(searchInput.toLowerCase()) && (!currentCategory || restaurant.category === currentCategory)
+      ))
+    )
   }
 
   return (
@@ -65,11 +82,15 @@ const Homepage = () => {
             />
           </SearchContainer>
           <FilterContainer>
-            <FilterSpan>Burger</FilterSpan>
-            <FilterSpan>Asiática</FilterSpan>
-            <FilterSpan>Massas</FilterSpan>
-            <FilterSpan>Saudáveis</FilterSpan>
-            <FilterSpan>Vegano</FilterSpan>
+            {categories.map((category, i) => (
+              <FilterSpan
+                key={i}
+                isActive={currentCategory === category}
+                onClick={() => handleCategoryClick(category)}
+              >
+                {category}
+              </FilterSpan>
+            ))}
           </FilterContainer>
         </UserHandleContainer>
         <RestaurantContainer>
