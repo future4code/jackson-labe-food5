@@ -1,68 +1,60 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Rappi4A
 
-In the project directory, you can run:
+Projeto: Plataforma web de delivery
+Esse é um projeto em grupo, segue o nome da galera:
+ 
+  - Michelle Louzada Carballo
+  - Grégory Gustavo Mendes
+  - Daniel Araujo Farias de Melo
+  - João Victor Ferreira do Nascimento Oliveira
+  - Luana Pereira
 
-### `npm start`
+### O que funciona:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Cadastro de Pessoa com validador de inputs e confirmação de senha;
+- Cadastro de endereço;
+- Alterar endereço pelo perfil;
+- Alterar Cadastro (email, senha, cpf) pelo perfil;
+- Login com validador de inputs;
+- Página Home com lista de restaurantes;
+- Filtro de restaurantes por Categoria;
+- Buscador de restaurante por nome no Input;
+- Descrição do restaurante com produtos daquele restaurante;
+- Adicionar um produto com quantidade de 1 a 6;
+- Carrinho de compras com o produto e a quantidade selecionada anteriormente;
+- Valor de subtotal frete + produtos;
+- Confirmar Compra com método de pagamento;
+- Histótico de compras após o tempo de espera da entrega;
+- Design Responsivo pra Iphone 6/7/8;
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### O que não funciona:
 
-### `npm test`
+- API Place order que informa ao usuário o tempo pra o produto chegar em sua residencia;
+- Subtotal do histórico;
+- Testes
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Link do Surge:
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Layout
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Baseado no Rappi
 
-### `npm run eject`
+### Documentação da Api
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Rappi4A - https://documenter.getpostman.com/view/7549981/SWTEdGtT#e6c05246-7dcc-483c-95a3-269792e59c37
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Design System
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Zaplin https://scene.zeplin.io/project/5dd5ae92669af1bc817c8359
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Bibliotecas usadas
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- npm install styled-components
+- npm install axios
+- npm install @material-ui/core
+- npm npm install react-icons --save
+- $ npm install --save react-router-dom
