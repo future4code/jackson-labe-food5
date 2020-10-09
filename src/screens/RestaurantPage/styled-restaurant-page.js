@@ -172,6 +172,8 @@ export const ContainerDetails = styled.div `
   letter-spacing: -0.39px;
   color: #e86e5a;
   margin: 0px 0px 6px 0px;
+  position: absolute;
+  top: 10px;
   }
 
   span {
@@ -185,6 +187,8 @@ export const ContainerDetails = styled.div `
   letter-spacing: -0.34px;
   color: #b8b8b8;
   margin: 0px 17px 6px 0px;
+  position: absolute;
+  top: 48px;
   }
 
 `
@@ -272,6 +276,8 @@ export const ContAdd = styled.div`
   letter-spacing: -0.39px;
   color: var(--black);
   margin: 3px 0px 0px 0px;
+  position: absolute;
+  bottom: 10px;
   }
 
 `

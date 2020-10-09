@@ -45,6 +45,17 @@ const CardProducts = (props) => {
 const removeValue = () => {
     setSelectValue("")
 }
+const handlePrice = () => {
+  if(props.price % 1 === 0) {
+      return (
+             <h4> R${props.price}.00 </h4>
+      )
+  } else {
+      return (
+              <h4>R${props.price}0</h4>
+      )
+  }
+}
 
   return (
     <Container>
@@ -60,7 +71,7 @@ const removeValue = () => {
                 <p>{props.name}</p>
                 <span>{props.description}</span>
                 <ContAdd>
-                    <h4>R${props.price}</h4>
+                    {handlePrice()}
                     <BottomAdicionar>
                         {selectValue ? <p onClick={removeValue}>Remover</p> : <p onClick={handleOpen}>Adicionar</p> }
                     </BottomAdicionar>
