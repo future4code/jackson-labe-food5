@@ -45,13 +45,7 @@ const CardProducts = (props) => {
 const removeValue = () => {
     setSelectValue("")
 }
-const handlePrice = () => {
-  if(props.price) {
-      return (
-             <h4> R${props.price}.00 </h4>
-      )
-  }
-}
+
 
   return (
     <Container>
