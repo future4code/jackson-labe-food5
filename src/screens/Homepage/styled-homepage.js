@@ -72,7 +72,7 @@ export const FilterSpan = styled.span`
     letter-spacing: -0.39px;
     text-align: center;
     color: ${props => props.isActive ? "#e86e5a" : "black"};
-    margin-right: 8px;
+    margin-right: 30px;
 `
 
 export const RestaurantContainer = styled.div`
