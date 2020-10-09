@@ -34,7 +34,7 @@ const Router = () => {
                 <Header title='' withBackButton />
                 <RegisterAdressPage/>
             </PrivateRoute>
-            <PrivateRoute path={`/detalhes-restaurante`}>
+            <PrivateRoute path={`/detalhes-restaurante/:id`}>
                 <Header title='Restaurante' withBackButton />
                 <RestaurantPage/>
             </PrivateRoute>

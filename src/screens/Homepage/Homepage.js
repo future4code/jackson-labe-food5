@@ -15,8 +15,11 @@ import {
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { InfoText, InnerScreen, RestaurantName } from '../../styles/atoms';
 import api from '../../services/api'
+import { useHistory } from 'react-router-dom';
+import {goToRestaurantPage} from '../../navigation/Coordinator'
 
 const Homepage = () => {
+  const history = useHistory()
   const [restaurants, setRestaurants] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [searchInput, setSearchInput] = useState('')
@@ -76,7 +79,7 @@ const Homepage = () => {
             : (filteredRestaurants().length > 0 
                 ? filteredRestaurants()
                   .map((restaurant) => (
-                  <RestaurantCard key={restaurant.id}>
+                  <RestaurantCard key={restaurant.id} onClick={() => goToRestaurantPage(history, restaurant.id)}>
                     <RestaurantImage src={restaurant.logoUrl} alt="restaurant" />
                     <RestaurantName>{restaurant.name}</RestaurantName>
                     <SubInfos>
