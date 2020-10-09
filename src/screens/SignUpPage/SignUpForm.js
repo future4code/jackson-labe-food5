@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Container, Logo, Title, Form} from './styled-signup-page';
 import { Label } from '../../styles/molecules'
 import { Button } from '../../styles/atoms'
 import logo from '../../Img/logo-future-eats-color.png';
 import { VisibilityIcon, VisibilityOffIcon } from '../../styles/atoms'
+import api from "../../services/api.js;";
+
+const body = {
+	name: '',
+	email: '',
+	cpf: '',
+	password: ''
+}
 
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -11,6 +19,17 @@ const SignUpForm = () => {
   const handlePasswordVisibility = () => {
     setShowPassword(state => !state)
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      api.post('/singup', {
+        headers: {
+          
+        }
+      })
+    }
+  
 
   return (
     <Container>
@@ -88,4 +107,6 @@ const SignUpForm = () => {
     </Container>
   );
 }
+}
+
 export default SignUpForm;
