@@ -45,6 +45,8 @@ const SignUpForm = () => {
       if (isValid) {
         signUp(form, history, setIsLoading)
       }
+    }else {
+     alert('senhas diferentes, por favor verifique sua senha')
     }
     
   }
