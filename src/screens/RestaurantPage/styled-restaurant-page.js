@@ -1,5 +1,13 @@
 import styled from 'styled-components'
 import { AiOutlineLeft } from "react-icons/ai";
+import { CircularProgress } from '@material-ui/core';
+
+export const Circular = styled(CircularProgress)`
+  margin: 220px 165px;
+  width: 30px;
+  height: 30px;
+  color: #e86e5a;
+`
 
 export const Container = styled.div`
   display: flex;
@@ -82,7 +90,6 @@ export const ContainerRestaurant = styled.div`
         margin-bottom: 8px;
         width: 328px;
         height: 18px;
-        font-family: Roboto;
         font-size: 16px;
         font-weight: normal;
         font-stretch: normal;
@@ -95,7 +102,6 @@ export const ContainerRestaurant = styled.div`
     span {
     width: 104px;
     height: 18px;
-    font-family: Roboto;
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;

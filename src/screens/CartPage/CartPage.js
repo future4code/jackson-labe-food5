@@ -11,9 +11,12 @@ import { UserAdressContainer,
 import OrderCard from './OrderCard';
 import { useCart } from '../../contexts/shoppingCart'
 import api from '../../services/api'
+import {useHistory} from 'react-router-dom'
+import {goToHomepage} from '../../navigation/Coordinator'
 
 const Cart = () => {
   const { cart } = useCart()
+  const history = useHistory()
   const [ paymentOption, setPaymentOption ] = useState("")
 
   const handlePaymentMethod = (event) => {
@@ -42,16 +45,22 @@ const Cart = () => {
       }),
       paymentMethod: paymentOption
     }
-    
-    const config = {headers: {auth: localStorage.getItem('token')}}
+    console.log(body)
+    if(cart.length > 0) {
+      const config = {headers: {auth: localStorage.getItem('token')}}
 
     api.post(`/restaurants/${cart[0].restaurant.id}/order`, body, config)
     .then((response) => {
-      console.log(response.data)
+      alert(`pedido realizado com sucesso, por favor aguardar a entrega`)
+      goToHomepage(history)
     })
     .catch((error) => {
-      alert(error.response.data.message)
+      alert("carrinho vazio")
     })
+    }else {
+      alert("carrinho vazio")
+    }
+    
   }
 
   return (
@@ -64,7 +73,7 @@ const Cart = () => {
         <RestaurantInfoContainer>
           <span style={{color: "#e86e5a"}}>{cart[0] && cart[0].restaurant.name}</span>
           <InfoText>{cart[0] && cart[0].restaurant.address}</InfoText>
-          <InfoText>{cart[0] && cart[0].restaurant.deliveryTime} min</InfoText>
+          {cart[0] ? <InfoText>{cart[0] && cart[0].restaurant.deliveryTime} min</InfoText> : <></>}
         </RestaurantInfoContainer>
         {cart.map(item => (
           <OrderCard key={item.id} item={item}/>

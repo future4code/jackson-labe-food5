@@ -89,7 +89,7 @@ const ProfilePage = () => {
                   <RestaurantCard key={i}>
                     <span>{order.restaurantName}</span>
                     <span>{(new Date(order.createdAt).toLocaleDateString('pt-BR', {day:'numeric', month: 'long', year: 'numeric'}))}</span>
-                    <span>SUBTOTAL R${order.totalPrice},00</span>
+                    <span>SUBTOTAL R${order.totalPrice.toFixed(2).replace(".", ",")}</span>
                   </RestaurantCard>
                 ))
                 : <p style={{alignSelf: "center"}}>Você não realizou nenhum pedido</p> 

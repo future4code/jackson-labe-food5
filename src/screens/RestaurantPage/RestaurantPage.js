@@ -4,18 +4,21 @@ import {
   ImgContainer,
   ContainerRestaurant,
   SpanSubtitle,
+  Circular,
 } from './styled-restaurant-page'
 import ImgRestaurante from '../../Img/hamburger-restaurante.jpg'
 import CardProducts from './CardProducts'
 import { InfoText, InnerScreen } from '../../styles/atoms';
 import { useParams } from 'react-router-dom'
 import useRequestData from '../../services/useRequestData'
-import { CircularProgress } from '@material-ui/core';
+
 
 const RestaurantPage = () => {
   const params = useParams()
   const [categorias, setCategorias] = useState()
-  const restaurant = useRequestData([], `/restaurants/${params.id}`)
+  const [isLoading, setIsLoading] = useState(false)
+  const restaurant = useRequestData([], `/restaurants/${params.id}`, setIsLoading)
+  
   
   const criarCategorias = () => {
     const category = []
@@ -30,12 +33,13 @@ const RestaurantPage = () => {
 
   useEffect(()=>{
     criarCategorias()
+
   },[restaurant])
 
 
   return (
     <InnerScreen>
-      {restaurant ? <Container>
+      {isLoading ? <Circular /> : <Container>
         <ImgContainer>
           <img src={restaurant.logoUrl} />
         </ImgContainer>
@@ -69,7 +73,7 @@ const RestaurantPage = () => {
            )
         })}
         
-      </Container> : <CircularProgress /> }
+      </Container> }
     </InnerScreen> 
 )
 }
