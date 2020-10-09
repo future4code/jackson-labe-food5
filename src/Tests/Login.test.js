@@ -6,7 +6,7 @@ import { ExpansionPanelActions } from '@material-ui/core';
 
 describe("Login", () => {
     test ("Testing Login", () => {
-        const { getByPlaceholderText, getByText} = render(<SingUpForm/>);
+        const { getByPlaceholderText, getByText} = render(<LoginForm/>);
     
         const input = getByPlaceholderText("email@email.com");
     

@@ -6,7 +6,7 @@ import { ExpansionPanelActions } from '@material-ui/core';
 
 describe("Profile", () => {
     test ("Testing Profile", () => {
-        const { getByPlaceholderText, getByText} = render(<SingUpForm/>);
+        const { getByPlaceholderText, getByText} = render(<ProfileForm/>);
     
         const input = getByPlaceholderText("Nome e Sobrenome");
     
