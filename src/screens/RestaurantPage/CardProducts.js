@@ -46,13 +46,9 @@ const removeValue = () => {
     setSelectValue("")
 }
 const handlePrice = () => {
-  if(props.price % 1 === 0) {
+  if(props.price) {
       return (
              <h4> R${props.price}.00 </h4>
-      )
-  } else {
-      return (
-              <h4>R${props.price}0</h4>
       )
   }
 }
@@ -71,7 +67,7 @@ const handlePrice = () => {
                 <p>{props.name}</p>
                 <span>{props.description}</span>
                 <ContAdd>
-                    {handlePrice()}
+                   <h4> R$ {props.price.toFixed(2).replace(".", ",")} </h4>
                     <BottomAdicionar>
                         {selectValue ? <p onClick={removeValue}>Remover</p> : <p onClick={handleOpen}>Adicionar</p> }
                     </BottomAdicionar>
