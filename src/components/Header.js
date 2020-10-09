@@ -7,6 +7,7 @@ import { AiOutlineLeft } from "react-icons/ai";
 const Container = styled.header`
   box-sizing: border-box;
   position: fixed;
+  z-index: 1;
   top: 0;
   height: 64px;
   width: 100vw;
@@ -31,16 +32,16 @@ const Container = styled.header`
 `
 
 const BackButton = styled(AiOutlineLeft)`
-  visibility: ${({withBackButton}) => withBackButton ? 'visible' : 'hidden'};
+  visibility: ${({withbackbutton}) => withbackbutton === 'true' ? 'visible' : 'hidden'};
 `
 
-const Header = ({title, withBackButton}) => {
+const Header = ({title, withbackbutton}) => {
   const history = useHistory();
 
   return (
     <Container>
       <BackButton
-        withBackButton={withBackButton}
+        withbackbutton={withbackbutton ? 'true' : 'false'}
         onClick={() => goBack(history)}
         fontSize="24px"
       />

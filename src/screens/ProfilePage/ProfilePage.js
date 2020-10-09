@@ -85,8 +85,8 @@ const ProfilePage = () => {
             <h3>Histórico de Pedidos</h3>
             {
               orders.length > 0
-                ? orders.map((order) => (
-                  <RestaurantCard>
+                ? orders.map((order, i) => (
+                  <RestaurantCard key={i}>
                     <span>{order.restaurantName}</span>
                     <span>{(new Date(order.createdAt).toLocaleDateString('pt-BR', {day:'numeric', month: 'long', year: 'numeric'}))}</span>
                     <span>SUBTOTAL R${order.totalPrice},00</span>
