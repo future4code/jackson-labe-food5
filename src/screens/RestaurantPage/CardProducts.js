@@ -18,6 +18,7 @@ import { goToRestaurantPage } from '../../navigation/Coordinator';
 import {useHistory} from 'react-router-dom'
 import { useCart } from '../../contexts/shoppingCart'
 
+
 const CardProducts = (props) => {
     const history = useHistory()
     const [selectValue, setSelectValue] = useState("")
