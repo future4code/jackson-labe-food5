@@ -5,16 +5,17 @@ import { Button } from '../../styles/atoms'
 import logo from '../../Img/logo-future-eats-color.png';
 import { VisibilityIcon, VisibilityOffIcon } from '../../styles/atoms'
 import api from "../../services/api.js";
-
-const body = {
-	name: '',
-	email: '',
-	cpf: '',
-	password: ''
-}
+import useForm from '../LoginPage/useForm'
+import {useHistory} from 'react-router-dom'
+import {signUp} from '../../services/user'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false)
+  const history = useHistory()
+  const [form, handleInputChange] = useForm({name: '', email: '', password: '', cpf: ""})
+  const [confimPassword, setComfirmPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
   
   const handlePasswordVisibility = () => {
     setShowPassword(state => !state)
@@ -29,8 +30,24 @@ const SignUpForm = () => {
         }
       })
     }
-  })
+  }) 
+
+  const handlePassword = (event) =>{
+    setComfirmPassword(event.target.value)
+  }
   
+  const onClickSignUp = (event) => {
+    event.preventDefault()
+    const element = document.getElementById('signup_form')
+    const isValid = element.checkValidity()
+    element.reportValidity()
+    if(form.password === confimPassword) {
+      if (isValid) {
+        signUp(form, history, setIsLoading)
+      }
+    }
+    
+  }
 
   return (
     <Container>
@@ -38,7 +55,7 @@ const SignUpForm = () => {
 
       <Title> Cadastrar </Title>
 
-      <Form>
+      <Form id={'signup_form'}>
         <Label htmlFor="name">
           <span>Nome*</span>
           <input
@@ -46,6 +63,10 @@ const SignUpForm = () => {
             type="text"
             placeholder="Nome e Sobrenome"
             required
+            autoFocus
+            name='name'
+            onChange={handleInputChange}
+            value={form.name}
           />
         </Label>
 
@@ -56,6 +77,9 @@ const SignUpForm = () => {
             type="email"
             placeholder="email@email.com"
             required
+            name='email'
+            onChange={handleInputChange}
+            value={form.email}
           />
         </Label>
         
@@ -63,11 +87,14 @@ const SignUpForm = () => {
           <span>CPF*</span>
           <input
             id="CPF"
-            type="text"
+            type="cpf"
             placeholder="000.000.000-00"
             minLength="12"
             maxlength="15"
             required
+            name='cpf'
+            onChange={handleInputChange}
+            value={form.cpf}
           />
         </Label>
 
@@ -78,6 +105,10 @@ const SignUpForm = () => {
             type={showPassword ? 'text' : 'password'}
             placeholder="Mínimo 6 caracteres"
             required
+            minLength="6"
+            name='password'
+            onChange={handleInputChange}
+            value={form.password}
           />
           {
             showPassword
@@ -92,8 +123,11 @@ const SignUpForm = () => {
             id="confirm"
             type={showPassword ? 'text' : 'password'}
             placeholder="Confirme a senha anterior"
-            minLength="12"
+            minLength="6"
             required
+            name='password'
+            onChange={handlePassword}
+            value={confimPassword}
           />
           {
             showPassword
@@ -102,7 +136,12 @@ const SignUpForm = () => {
           }
         </Label>
 
-        <Button type="submit">Criar</Button>
+        <Button 
+        type="submit"
+        onClick={onClickSignUp}
+        >
+         {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Criar</>}
+          </Button>
       </Form>
 
     </Container>
