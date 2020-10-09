@@ -59,6 +59,7 @@ const RestaurantPage = () => {
                   description={product.description}
                   price={product.price}
                   photoUrl={product.photoUrl}
+                  restaurant={restaurant}
                   />
                  )
                }
