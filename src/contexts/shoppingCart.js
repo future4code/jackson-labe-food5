@@ -5,10 +5,10 @@ const ShoppingCartContext = createContext();
 export const ShoppingCartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   
-  const addToCart = (id, quantity) => {
+  const addToCart = (product, quantity) => {
     const newCart = [...cart]
     
-    newCart.push({id, quantity})
+    newCart.push({...product, quantity})
     setCart(newCart)
   }
 

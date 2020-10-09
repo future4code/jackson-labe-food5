@@ -16,11 +16,13 @@ import ImgCard from '../../Img/hamburger.jpg'
 import Modal from '@material-ui/core/Modal';
 import { goToRestaurantPage } from '../../navigation/Coordinator';
 import {useHistory} from 'react-router-dom'
+import { useCart } from '../../contexts/shoppingCart'
 
 const CardProducts = (props) => {
     const history = useHistory()
     const [selectValue, setSelectValue] = useState("")
     const [open, setOpen] = React.useState(false);
+    const { addToCart } = useCart();
 
   const handleOpen = () => {
     setOpen(true);
@@ -39,6 +41,7 @@ const CardProducts = (props) => {
     const isValid = element.checkValidity()
     element.reportValidity()
     if (isValid) {
+      addToCart(props, selectValue)
       handleClose()
     }
   }

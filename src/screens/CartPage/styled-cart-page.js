@@ -17,6 +17,8 @@ export const RestaurantInfoContainer = styled.div`
 `
 
 export const OrderContainer = styled.div`
+  position: relative;
+
   align-self: center;
   width: 328px;
   height: 112px;
@@ -30,6 +32,8 @@ export const OrderDetailsContainer = styled.div `
   margin: 0px 0px 6px 16px;
   
   p {
+    position: absolute;
+    top: 10px;
     width: 166px;
     height: 18px;
     font-size: 16px;
@@ -43,6 +47,8 @@ export const OrderDetailsContainer = styled.div `
   }
 
   span {
+    position: absolute;
+    top: 48px;
     width: 198px;
     height: 30px;
     font-size: 14px;
@@ -57,6 +63,9 @@ export const OrderDetailsContainer = styled.div `
 
 `
 export const OrderQuantity = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 0px;
   width: 33px;
   height: 33px;
   border-top-right-radius: 8px;
@@ -95,6 +104,8 @@ export const RemoveContainer = styled.div`
   margin-top: 4px;
 
   h4 {
+    position: absolute;
+    bottom: 10px;
     width: 108px;
     height: 19px;
     font-size: 16px;
@@ -109,6 +120,9 @@ export const RemoveContainer = styled.div`
 `
 
 export const RemoveBottom = styled.div`
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
   width: 90px;
   height: 31px;
   border: solid 1px #e02020;

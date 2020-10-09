@@ -8,6 +8,7 @@ export const login = (body, history, setIsLoading) => {
   axios.post(`${baseUrl}/login`, body)
     .then((response) => {
       localStorage.setItem('token', response.data.token)
+      localStorage.setItem('user', JSON.stringify(response.data.user))
       setIsLoading(false)
       goToHomepage(history)
       
