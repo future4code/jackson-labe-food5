@@ -57,9 +57,10 @@ export const SearchIcon = styled(MdSearch)`
 
 export const FilterContainer = styled.div`
     display: flex;
-    justify-content: space-around;
     padding-bottom: 8px;
+    margin: 0px 8px;
     border-bottom: solid 1px #b8b8b8;
+    overflow-x: scroll;
 `
 
 export const FilterSpan = styled.span`
@@ -70,7 +71,8 @@ export const FilterSpan = styled.span`
     line-height: normal;
     letter-spacing: -0.39px;
     text-align: center;
-    color: black;
+    color: ${props => props.isActive ? "#e86e5a" : "black"};
+    margin-right: 8px;
 `
 
 export const RestaurantContainer = styled.div`
